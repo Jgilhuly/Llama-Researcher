@@ -18,7 +18,7 @@ async def main():
     llm = OpenAI(model="gpt-4o-mini")
     embed_model = OpenAIEmbedding(model="text-embedding-3-small")
     
-    tracer_provider = register(endpoint="https://app.phoenix.arize.com/v1/traces", project_name="research_assistant")
+    tracer_provider = register(project_name="research_assistant")
     LlamaIndexInstrumentor().instrument(tracer_provider=tracer_provider)
     
     workflow = ResearchAssistantWorkflow(
